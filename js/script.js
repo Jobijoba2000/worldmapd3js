@@ -1,7 +1,7 @@
 const ratio50m = 10, ratio10m = 50, ratio1m = 150;
 let world101m;
 let box5m, tab_colors, world, world110m, world50, world10m, world5m, text_countries; 
-const p = "/data/";
+const p = "data/";
 const colors = ["#452525", "#4E2F2F", "#573939", "#604343", "#694D4D", "#725757", "#7B6161", "#846B6B", "#8D7575", "#967F7F", "#9F8989", "#A89393", "#B19D9D", "#BAa7a7"];
 function loadGeoJSON(url, fallbackUrl) {
     return d3.json(url).catch(() => d3.json(fallbackUrl));
