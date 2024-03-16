@@ -1,0 +1,25 @@
+<IfModule rewrite_module>
+	RewriteEngine On
+	RewriteCond %{REQUEST_FILENAME} "\.php$"
+	RewriteCond %{REQUEST_FILENAME} !-f
+</IfModule>
+<IfModule autoindex_module>
+	# Empêche le listing des fichiers (Index Of)
+	Options -Indexes
+</IfModule>
+<FilesMatch "\.(js)$">
+	Header set Cache-Control "max-age=1800, private"
+</FilesMatch>
+<FilesMatch "\.(ico|jpe?g|png|gif|swf|json|geojson|gz|ttf)$">
+	Header set Cache-Control "max-age=604800, public"
+</FilesMatch>
+<FilesMatch "\.(css)$">
+	Header set Cache-Control "max-age=1800, public"
+</FilesMatch>
+
+AddType application/json .geojson
+AddEncoding gzip .gz
+<FilesMatch "\.geojson\.gz$">
+    ForceType application/json
+    Header set Content-Encoding gzip
+</FilesMatch>
